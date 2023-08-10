@@ -1,0 +1,38 @@
+/********************* Header ********************/
+/************************************************/
+
+.login__header {
+  position: absolute;
+  top: 0;
+  z-index: 12;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0rem 1rem;
+  cursor: pointer;
+}
+
+.login__btn {
+  border: none;
+  padding: 0.4em 0.7em;
+  border-radius: 4px;
+  color: white;
+  font-weight: 700;
+  text-transform: capitalize;
+  background-color: var(--red);
+  cursor: pointer;
+  font-size: clamp(0.6rem, -0.875rem + 6.77vw, 0.9rem);
+}
+
+.login__logo {
+  max-width: 70px;
+  max-height: auto;
+}
+
+@media only screen and (min-width: 650px) {
+  .login__logo {
+    max-width: 110px;
+  }
+}

@@ -1,0 +1,55 @@
+@import "../../../styles/__variables.css";
+
+.nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  min-height: 70px;
+  z-index: 1;
+  background-color: transparent;
+  /* background-color: blueviolet; */
+
+  /* background-color: black; */
+
+  /* Animation */
+
+  transition-timing-function: ease-in;
+  transition: all 0.5;
+}
+
+.nav--black {
+  background-color: rgb(19, 19, 19);
+}
+
+.nav__imgs {
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+  justify-content: space-between;
+}
+
+.nav__logo {
+  width: 70px;
+  cursor: pointer;
+  object-fit: contain;
+}
+
+.nav__avatar {
+  cursor: pointer;
+  width: 30px;
+}
+
+@media only screen and (min-width: 680px) {
+  .nav__logo {
+    width: 90px;
+  }
+
+  .nav__avatar {
+    width: 40px;
+    margin-right: 1rem;
+  }
+
+  .nav__imgs {
+    padding: 0 1rem;
+  }
+}

@@ -1,0 +1,47 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+  min-height: 40vh;
+  padding: 3rem 2rem;
+  color: rgb(219, 213, 213);
+}
+.footer .login__select {
+  margin: 0;
+}
+.footer .login__select select {
+  width: 100px;
+}
+
+.footer__nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  align-self: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footer__list {
+  list-style: none;
+  flex: 1 1 0;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__list a {
+  border-bottom: 1px grey solid;
+  cursor: pointer;
+}
+.footer__list a:hover {
+  color: white;
+}
+
+@media only screen and (min-width: 800px) {
+  .footer {
+    padding: 3rem 13rem;
+  }
+}

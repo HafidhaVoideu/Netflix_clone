@@ -1,0 +1,25 @@
+.bg {
+  position: relative;
+}
+
+.bg__img {
+  overflow: hidden;
+  min-height: 80vh;
+  max-width: 100%;
+  position: relative;
+  border-bottom: solid rgb(15, 15, 15) 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: cover;
+}
+
+.bg__gradient {
+  position: absolute;
+  width: 100%;
+  min-height: 80vh;
+  inset: 0;
+  z-index: 2;
+  cursor: pointer;
+  background-image: linear-gradient(255deg, #1b1c1c 0%, #000000 74%);
+  opacity: 0.5;
+}

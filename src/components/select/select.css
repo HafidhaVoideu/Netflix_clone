@@ -1,0 +1,35 @@
+.login__select {
+  margin-left: auto;
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+  padding: 0 0.4em;
+  border-radius: 5px;
+  color: white;
+  height: 22px;
+  border: 1px grey solid;
+}
+
+.login__select select {
+  color: white;
+  width: 20px;
+  padding: 0;
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.login__select select:focus {
+  outline: none;
+}
+
+@media only screen and (min-width: 300px) {
+  .login__select {
+    height: 32px;
+  }
+}
+@media only screen and (min-width: 500px) {
+  .login__select select {
+    width: 90px;
+  }
+}

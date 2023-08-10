@@ -1,0 +1,51 @@
+/********************* Form ********************/
+/***********************************************/
+
+.login__email p {
+  margin-bottom: 2rem;
+  font-size: clamp(0.9rem, -0.875rem + 8.333vw, 1.2rem);
+}
+.login__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0;
+  width: 90%;
+}
+
+.login__form input {
+  padding: 0.9rem;
+  font-size: 0.9rem;
+  border: 1px grey solid;
+  border-radius: 5px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  flex: 3;
+}
+.login__form input::placeholder {
+  color: rgb(255, 255, 255);
+}
+
+.login__form__btn span:last-child {
+  margin-left: 0.4rem;
+}
+
+.login__form__btn {
+  border: none;
+  border-radius: 5px;
+  background-color: var(--red);
+  color: white;
+  font-size: clamp(0.4rem, -0.875rem + 8.11vw, 1.1rem);
+  font-weight: 700;
+  flex: 1;
+  cursor: pointer;
+  padding: 0.6em 1em;
+}
+
+@media only screen and (min-width: 650px) {
+  .login__form {
+    flex-direction: row;
+    align-items: stretch;
+  }
+}
