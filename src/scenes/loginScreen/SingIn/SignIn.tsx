@@ -60,14 +60,20 @@ const SignIn = () => {
                 type="email"
                 placeholder="email"
               />
-              <ErrorMessage name="email" />
+
+              <span className="error-formik">
+                <ErrorMessage name="email" />
+              </span>
               <Field
                 id="password_id"
                 name="password"
                 type="password"
                 placeholder="password"
               />
-              <ErrorMessage name="password" />
+
+              <span className="error-formik">
+                <ErrorMessage name="password" />
+              </span>
 
               <button
                 className="sign-in__btn"

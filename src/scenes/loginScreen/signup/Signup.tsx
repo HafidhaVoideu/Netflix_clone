@@ -17,7 +17,6 @@ import { useNavigate } from "react-router";
 type SignupFormValues = {
   name: string;
   surname: string;
-  birthDate: string;
   email: string;
   pwd: string;
   pwdConfirmation: string;
@@ -26,7 +25,6 @@ type SignupFormValues = {
 const initialValues: SignupFormValues = {
   name: "",
   surname: "",
-  birthDate: "",
   email: "",
   pwd: "",
   pwdConfirmation: "",
@@ -40,7 +38,6 @@ const Signup = () => {
   const validateSchema = Yup.object({
     name: Yup.string().required("required"),
     surname: Yup.string().required("required"),
-    birthDate: Yup.string().required("required"),
     email: Yup.string().email("Invalid Email Format").required("required"),
     pwd: Yup.string()
       .test(
@@ -49,10 +46,9 @@ const Signup = () => {
         (val) => typeof val === "string" && val.length >= 6
       )
       .required("required"),
-    pwdConfirmation: Yup.string().oneOf(
-      [Yup.ref("pwd"), ""],
-      "Your passwords do not match."
-    ),
+    pwdConfirmation: Yup.string()
+      .oneOf([Yup.ref("pwd"), ""], "Your passwords do not match.")
+      .required("required"),
   });
 
   //   validation Register
@@ -61,7 +57,6 @@ const Signup = () => {
     values: SignupFormValues,
     onSubmit: FormikHelpers<SignupFormValues>
   ) => {
-    console.log("on submit:");
     createUserWithEmailAndPassword(auth, values.email, values.pwd)
       .then((userCredential) => {
         const user = userCredential.user;
@@ -82,60 +77,87 @@ const Signup = () => {
         <Formik
           initialValues={initialValues}
           onSubmit={handleOnSubmit}
-          validator={() => ({})}
-          // validationSchema={validateSchema}
+          validationSchema={validateSchema}
         >
-          {(formik: FormikProps<SignupFormValues>) => (
-            <Form className="sign-up__form">
-              <Field id="name_id" name="name" type="text" placeholder="name" />
-              <ErrorMessage name="name" />
-              <Field
-                id="surname_id"
-                name="surname"
-                type="text"
-                placeholder="surname"
-              />
-              <ErrorMessage name="surname" />
-              <Field
-                id="email_id"
-                name="email"
-                type="email"
-                placeholder="email address"
-              />
-              <ErrorMessage name="email" />
+          {(formik: FormikProps<SignupFormValues>) => {
+            console.log("formik", formik.errors);
 
-              <Field
-                id="password_id"
-                name="pwd"
-                type="password"
-                placeholder="password"
-              />
-              <ErrorMessage name="pwd" />
-              <Field
-                id="passwordConf_id"
-                name="pwdConfirmation"
-                type="password"
-                placeholder="Retype password"
-              />
-              <ErrorMessage name="pwdConfirmation" />
+            return (
+              <Form className="sign-up__form">
+                <Field
+                  id="name_id"
+                  name="name"
+                  type="text"
+                  placeholder="name"
+                />
 
-              <button
-                className="sign-up__btn"
-                type="submit"
-                disabled={
-                  !(formik.isValid && formik.dirty) || formik.isSubmitting
-                }
-              >
-                {" "}
-                Sign Up
-              </button>
+                <span className="error-formik">
+                  <ErrorMessage className="error-formik" name="name" />
+                </span>
+                <Field
+                  id="surname_id"
+                  name="surname"
+                  type="text"
+                  placeholder="surname"
+                />
+                <span className="error-formik">
+                  <ErrorMessage className="error-formik" name="surname" />
+                </span>
 
-              <p className="sign-up__subtitle">
-                Already a memeber?{" "}
-                <a onClick={() => navigate("/signIn")}>Sign in Now</a>
-              </p>
-            </Form>
-          )}
+                <Field
+                  id="email_id"
+                  name="email"
+                  type="email"
+                  placeholder="email address"
+                />
+
+                <span className="error-formik">
+                  <ErrorMessage className="error-formik" name="email" />
+                </span>
+
+                <Field
+                  id="password_id"
+                  name="pwd"
+                  type="password"
+                  placeholder="password"
+                />
+
+                <span className="error-formik">
+                  <ErrorMessage className="error-formik" name="pwd" />
+                </span>
+
+                <Field
+                  id="passwordConf_id"
+                  name="pwdConfirmation"
+                  type="password"
+                  placeholder="Retype password"
+                />
+
+                <span className="error-formik">
+                  <ErrorMessage
+                    className="error-formik"
+                    name="pwdConfirmation"
+                  />
+                </span>
+
+                <button
+                  className="sign-up__btn"
+                  type="submit"
+                  disabled={
+                    !(formik.isValid && formik.dirty) || formik.isSubmitting
+                  }
+                >
+                  {" "}
+                  Sign up
+                </button>
+
+                <p className="sign-up__subtitle">
+                  Already a memeber?{" "}
+                  <a onClick={() => navigate("/signIn")}>Sign in Now</a>
+                </p>
+              </Form>
+            );
+          }}
         </Formik>
       </div>
     </section>

@@ -2,7 +2,7 @@ import useAuthContext from "../hooks/useAuthContext";
 import { Outlet, Navigate, useLocation } from "react-router";
 
 const AuthRequierd = () => {
-  const { authenti, setAuth } = useAuthContext();
+  const { authenti } = useAuthContext();
   const location = useLocation();
 
   return authenti.email ? (

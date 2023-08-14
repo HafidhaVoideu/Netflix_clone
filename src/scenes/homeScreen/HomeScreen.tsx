@@ -69,7 +69,7 @@ const HomeScreen = () => {
       <div>
         {moviesRows.map(({ title, fetchURL, id, isLargePoster }) => (
           <MovieRow
-            key={id}
+            key={`${id}-${title}`}
             title={title}
             fetchURL={fetchURL}
             isLargePoster={isLargePoster}

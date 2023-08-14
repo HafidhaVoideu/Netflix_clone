@@ -2,18 +2,29 @@
 .sign-up {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 55%;
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.8);
-  padding: 3rem 1rem;
-  max-width: 400px;
-  width: 90%;
-  z-index: 4;
-  margin: 3rem;
+  padding: 1rem;
+  max-width: 350px;
+  width: 80%;
+  z-index: 7;
   align-items: center;
   color: white;
+  border-radius: 4px;
 
   margin: 1.5rem auto;
+}
+
+.sign-up {
+  box-shadow: 2px 2px 2px 2px rgba(249, 248, 248, 0.12);
+}
+
+.error-formik {
+  margin-top: -0.5rem;
+  font-size: 0.6rem;
+  color: red;
+  font-weight: 700;
 }
 
 .sign-in__form,
@@ -27,19 +38,21 @@
 
 .sign-in__form input,
 .sign-up__form input {
-  padding: 0.7em 0.5em;
+  padding: 0.5em 0.5em;
   border-radius: 5px;
-  margin-bottom: 0.8em;
+  margin-bottom: 0.4em;
+
   font-size: clamp(0.8rem, -0.875rem + 2.333vw, 0.9rem);
 }
 .sign-in__btn,
 .sign-up__btn {
-  padding: 1em;
+  padding: 0.8em;
   background-color: var(--red);
   border: none;
   color: white;
   font-weight: 700;
   margin: 1.5em 0;
+  border-radius: 4px;
 
   font-size: clamp(0.7rem, -0.875rem + 3.333vw, 1rem);
 }
@@ -59,8 +72,8 @@
 
 .sign-in__title,
 .sign-up__title {
-  font-size: clamp(1.3rem, -0.875rem + 5.333vw, 2rem);
-  margin-bottom: 2rem;
+  font-size: clamp(1.1rem, -0.875rem + 2.666vw, 2rem);
+  margin-bottom: 1.5rem;
   font-weight: 700;
 }
 
@@ -75,12 +88,52 @@
 .sign-up__subtitle > a {
   text-decoration: underline;
   color: white;
-
   cursor: pointer;
+}
+
+.sign-in__subtitle > a:hover,
+.sign-up__subtitle > a:hover {
+  opacity: 0.8;
 }
 
 .sign-in__subtitle,
 .sign-up__subtitle {
   color: grey;
   font-size: clamp(0.8rem, -0.875rem + 0.5rem, 0.9rem);
+}
+
+@media screen and (min-width: 350px) {
+  .sign-up {
+    top: 50%;
+    max-width: 290px;
+  }
+
+  .error-formik {
+    margin-top: -0.5rem;
+    font-size: 0.6rem;
+    color: red;
+    font-weight: 700;
+  }
+}
+@media screen and (min-width: 400px) {
+  .sign-up,
+  .sign-in {
+    top: 50%;
+
+    box-shadow: none;
+  }
+}
+@media screen and (min-width: 830px) {
+  .sign-up,
+  .sign-in {
+    top: 45%;
+    max-width: 370px;
+
+    box-shadow: none;
+    padding: 1.3rem 1rem;
+  }
+
+  .error-formik {
+    font-size: 0.8rem;
+  }
 }
